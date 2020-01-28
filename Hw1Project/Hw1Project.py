@@ -51,32 +51,39 @@ def func4(lst):
     else:
         return -1
 
-def func5(lst, lst2):
+def func5(lst1, lst2):
     """Returns overlap area of 2 squares."""
-    if func2(lst) == False or func2(lst2) == False:
-        return -1    
+    if func2(lst1) == False or func2(lst2) == False:
+        return -1
+    if lst1 == lst2:
+        return func4(lst1)
+    sq1 = [lst1[0], lst1[0]+lst1[2], lst1[1], lst1[1]+lst1[2]]
+    sq2 = [lst2[0], lst2[0]+lst2[2], lst2[1], lst2[1]+lst2[2]]
+    overlapx = 0
+    overlapy = 0
+    if sq1[0] <= sq2[0]:
+        if sq1[1] <= sq2[0]:
+            print('no X overlap')
+            return -1
+        elif sq2[0] < sq1[1] <= sq2[1]:
+            overlapx = sq1[1] - sq2[0]
+            print('X overlap is ' + str(overlapx))
+        else:
+            overlapx = lst2[2]
+            print(overlapx)
     else:
-    #convert valid squares to positive ints
-        nlst = []
-        nlst2 = []
-        for i in lst:
-            nlst.append(abs(i))
-        for i in lst2:
-            nlst2.append(abs(i))
-        width = 0
-        height = 0
-        # Width of overlapping areas
-        if nlst2[0] <= nlst[0] <= (nlst2[0] + nlst2[2]):
-            width += (nlst2[0] + nlst2[2]) - nlst[0]
-        if nlst[0] <= nlst2[0] <= (nlst[0] + nlst[2]):
-            width += (nlst[0] + nlst[2]) - nlst2[0]
-        # Height of overlapping areas
-        if nlst2[1] <= nlst[1] <= (nlst2[1] + nlst2[2]):
-            height += (nlst2[1] + nlst2[2]) - nlst[0]
-        if nlst[1] <= nlst2[1] <= (nlst[1] + nlst[2]):
-            height += (nlst[1] + nlst[2]) - nlst2[0]
-        print(str(width), str(height))
-#func5([1,1,2],[2,2,3])
+        if sq2[1] <= sq1[0]:
+            print('no X overlap 2')
+            return -1
+        elif sq1[0] < sq2[1] <= sq1[1]:
+            overlapx = sq2[1] - sq1[0]
+            print('22 X overlap is ' + str(overlapx))
+        else:
+            overlapx = lst1[2]
+            print(overlapx, '2')
+
+
+func5([3,1,2],[1,1,5])
 
 def prime(x):
     if type(x) != int:
