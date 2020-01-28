@@ -61,6 +61,8 @@ def func5(lst1, lst2):
     sq2 = [lst2[0], lst2[0]+lst2[2], lst2[1], lst2[1]+lst2[2]]
     overlapx = 0
     overlapy = 0
+    
+    # Overlapping area of x-values
     if sq1[0] <= sq2[0]:
         if sq1[1] <= sq2[0]:
             print('no X overlap')
@@ -82,8 +84,29 @@ def func5(lst1, lst2):
             overlapx = lst1[2]
             print(overlapx, '2')
 
+    # Overlapping area of Y-values
+    if sq1[2] <= sq2[3]:
+        if sq1[3] <= sq2[2]:
+            print('no Y overlap')
+            return -1
+        elif sq2[2] < sq1[3] <= sq2[3]:
+            overlapy = sq1[3] - sq2[2]
+            print('Y overlap is ' + str(overlapy))
+        else:
+            overlapy = lst2[2]
+            print(overlapy, 'yy')
+    else:
+        if sq2[1] <= sq1[2]:
+            print('no Y overlap 2')
+            return -1
+        elif sq1[2] < sq2[3] <= sq1[2]:
+            overlapy = sq2[3] - sq1[2]
+            print('22 Y overlap is ' + str(overlapy))
+        else:
+            overlapy = lst1[2]
+            print(overlapy, 'y')
 
-func5([3,1,2],[1,1,5])
+func5([1,3,2],[1,1,2])
 
 def prime(x):
     if type(x) != int:
