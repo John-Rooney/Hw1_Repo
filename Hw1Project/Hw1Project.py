@@ -131,7 +131,7 @@ def happy(x):
             return False
         return True
 
-def happyprime(x):
+def happyPrime(x):
     """Returns True if number is both happy and prime"""
     if happy(x) == True and prime(x) == True:
         return True
@@ -139,7 +139,7 @@ def happyprime(x):
         return False
 
 
-def happyprimegen():
+def happyPrimeGen():
     """List of first 100 happy prime numbers."""
     lst = []
     num = 1
@@ -151,7 +151,7 @@ def happyprimegen():
             num += 1
     return lst
 
-def sadprimegen():
+def sadPrimeGen():
     """List of first 100 sad prime numbers."""
     lst = []
     num = 1
