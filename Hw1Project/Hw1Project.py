@@ -144,7 +144,7 @@ def happyPrimeGen():
     lst = []
     num = 1
     while len(lst) < 100:
-        if happyprime(num) == True:
+        if happyPrime(num) == True:
             lst.append(num)
             num += 1
         else:
